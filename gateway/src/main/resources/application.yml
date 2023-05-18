@@ -12,3 +12,15 @@ spring:
   cloud:
     config:
       enabled: false
+    gateway:
+      routes:
+      - id: product-service
+        uri: lb://product-service
+        predicates:
+        - Path=/api/v1/products/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
