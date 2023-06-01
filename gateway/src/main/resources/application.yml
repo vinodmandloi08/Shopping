@@ -18,6 +18,14 @@ spring:
         uri: lb://product-service
         predicates:
         - Path=/api/v1/products/**
+      - id: cart-service
+        uri: lb://cart-service
+        predicates:
+        - Path=/api/v1/cart/**
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/api/v1/user/**
       globalcors:
         corsConfigurations:
           '[/**]':

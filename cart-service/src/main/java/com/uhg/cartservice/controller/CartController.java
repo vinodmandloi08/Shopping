@@ -17,7 +17,7 @@ import com.uhg.cartservice.entity.ProductCartMapping;
 import com.uhg.cartservice.services.CartService;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/api/v1/cart")
 public class CartController {
 	
 	@Autowired

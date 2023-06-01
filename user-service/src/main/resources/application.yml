@@ -1,19 +1,22 @@
-spring:
-  application:
-    name: cart-service
-  cloud:
-    compatibility-verifier:
-      enabled: false
-    config:
-      enabled: false
+server:
+  port: 8093
+spring: 
   datasource:
-    password: root
+    password: 2200
     url: jdbc:mysql://localhost:3306/uhg-sample-backend?createDatabaseIfNotExist=true
     username: root
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    
+  application:
+    name: user-service
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    config:
+      enabled: false
     
 eureka:
   client:
