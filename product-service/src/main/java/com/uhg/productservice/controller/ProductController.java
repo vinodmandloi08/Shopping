@@ -2,6 +2,7 @@ package com.uhg.productservice.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,6 @@ public class ProductController {
 		return ResponseEntity.ok(productDTOs);
 	}
 	
-	
 	@PostMapping("/add-product")
 	public ResponseEntity<ProductDTO> addProduct(@RequestParam("productName") String productName,
 									             @RequestParam("description") String description,
@@ -58,5 +58,10 @@ public class ProductController {
 			e.printStackTrace();
 			return ResponseEntity.internalServerError().build();
 		}
+	}
+	
+	@GetMapping("/filter-product")
+	public ResponseEntity<Set<Product>> filterPorduct(@RequestParam("keyword") String keyword){
+		return ResponseEntity.ok(productService.filterProductByKeyword(keyword));
 	}
 }
